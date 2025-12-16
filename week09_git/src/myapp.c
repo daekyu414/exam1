@@ -20,6 +20,14 @@ double calculate(double a, char* op, double b)
     {
         return mydiv(a, b);
     }
+    else if (strcmp(op, "%") == 0)
+    {
+        return mymod(a, b);
+    }
+    else if (strcmp(op, "^") == 0)
+    {
+        return mypow(a, b);
+    }
     else
     {
         printf("Unsupported operation: %s\n", op);
