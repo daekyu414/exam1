@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <errno.h>
 #include <fcntl.h>
+#include <errno.h>
 
 #define BUF_SIZE 32
 
@@ -10,7 +10,7 @@ int main(int argc, char* argv[])
 {
     if(argc < 3)
     {
-        printf("Usage: %s [source file] [destination file1] [destination file2] ... \n", argv[0]);
+        printf("Usage: %s [source file] [destination file] ... \n", argv[0]);
 
         return 1;
     }
@@ -55,10 +55,7 @@ int main(int argc, char* argv[])
         if(write_stdout == -1)
         {
             perror("write_stdout");
-
-            break;
         }
-        
         for(int i = 0; i < dest_num; i++)
         {
             if(dest_fd[i] != -1)

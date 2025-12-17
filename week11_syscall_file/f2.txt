@@ -1,2 +1,4 @@
-Hello, This is f1.txt!
+This is for copy and paste.
+I am a source text.
+Nice to meet you.
 Bye~~~
