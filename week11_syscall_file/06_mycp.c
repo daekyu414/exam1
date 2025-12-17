@@ -32,9 +32,6 @@ int main(int argc, char* argv[])
         if(dest_fd[i] == -1)
         {
             perror(argv[i + 2]);
-            free(dest_fd);
-            close(src_fd);
-            return 1;
         }
     }
 
@@ -46,22 +43,22 @@ int main(int argc, char* argv[])
         if(read_src == -1)
         {
             perror("read_src");
-            free(dest_fd);
-            free(buf);
-            return 1;
+
+            break;
         }
         if(read_src == 0)
         {
-            printf("program end...\n");
+            printf("Program end...\n");
             break;
         }
-
         ssize_t write_stdout = write(1, buf, read_src);
         if(write_stdout == -1)
         {
             perror("write_stdout");
-        }
 
+            break;
+        }
+        
         for(int i = 0; i < dest_num; i++)
         {
             if(dest_fd[i] != -1)
