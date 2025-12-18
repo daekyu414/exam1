@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <errno.h>
-#include <fcntl.h>
 
 #define BUF_SIZE 128
 
@@ -23,7 +22,6 @@ int main(int argc, char* argv[])
         if(read_stdin == -1)
         {
             perror("read_stdin");
-
             break;
         }
         if(read_stdin == 0)
@@ -31,12 +29,10 @@ int main(int argc, char* argv[])
             printf("Detected EOF (Ctrl + D)\n");
             break;
         }
-
         ssize_t write_stdout = write(1, buf, read_stdin);
         if(write_stdout == -1)
         {
             perror("write_stdout");
-
             break;
         }
     }

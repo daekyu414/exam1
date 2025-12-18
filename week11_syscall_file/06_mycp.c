@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <fcntl.h>
 #include <errno.h>
+#include <fcntl.h>
 
 #define BUF_SIZE 32
 
@@ -19,7 +19,6 @@ int main(int argc, char* argv[])
     if(src_fd == -1)
     {
         perror(argv[1]);
-
         return 1;
     }
 
@@ -43,12 +42,10 @@ int main(int argc, char* argv[])
         if(read_src == -1)
         {
             perror("read_src");
-
             break;
         }
         if(read_src == 0)
         {
-            printf("Program end...\n");
             break;
         }
         ssize_t write_stdout = write(1, buf, read_src);
@@ -56,6 +53,7 @@ int main(int argc, char* argv[])
         {
             perror("write_stdout");
         }
+        
         for(int i = 0; i < dest_num; i++)
         {
             if(dest_fd[i] != -1)
@@ -66,15 +64,6 @@ int main(int argc, char* argv[])
                     perror("write_dest");
                 }
             }
-        }
-    }
-
-    close(src_fd);
-    for(int i = 0; i < dest_num; i++)
-    {
-        if(dest_fd[i] != -1)
-        {
-            close(dest_fd[i]);
         }
     }
 

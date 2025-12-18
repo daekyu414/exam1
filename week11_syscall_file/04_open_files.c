@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <fcntl.h>
-#include <errno.h>
 #include <unistd.h>
+#include <errno.h>
+#include <fcntl.h>
 
 int main(int argc, char* argv[])
 {
     if(argc < 2)
     {
-        printf("Usage: %s [file name1] [file name2] ... \n", argv[0]);
+        printf("Usagd: %s [file name] ... \n", argv[0]);
 
         return 1;
     }
