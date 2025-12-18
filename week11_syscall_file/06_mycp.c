@@ -67,6 +67,15 @@ int main(int argc, char* argv[])
         }
     }
 
+    close(src_fd);
+    for(int i = 0; i < dest_num; i++)
+    {
+        if(dest_fd[i] != -1)
+        {
+            close(dest_fd[i]);
+        }
+    }
+
     free(dest_fd);
     free(buf);
 
